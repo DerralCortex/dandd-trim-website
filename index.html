@@ -205,7 +205,11 @@
     .form-group input, .form-group textarea, .form-group select { background: var(--cream); border: 1px solid #E5E5E5; border-radius: 3px; padding: 0.9rem 1rem; color: var(--dark); font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.3s; width: 100%; }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--gold); }
     .form-group textarea { resize: vertical; min-height: 120px; }
-    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    .forward-toggle-label { display: flex; align-items: center; gap: 0.7rem; cursor: pointer; font-size: 0.85rem; color: var(--grey); user-select: none; }
+    .forward-toggle-label input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer; flex-shrink: 0; }
+    .forward-section { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+    .forward-section.open { max-height: 120px; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .forward-section.open { max-height: 200px; } }
     
     /* Footer */
     footer { padding: 3rem 4rem; text-align: center; background: var(--dark); color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); }
@@ -405,6 +409,16 @@
           </select>
         </div>
         <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us about your project..."></textarea></div>
+        <label class="forward-toggle-label">
+          <input type="checkbox" id="forwardToggle">
+          <span>Send a copy to someone else</span>
+        </label>
+        <div class="forward-section" id="forwardSection">
+          <div class="form-row">
+            <div class="form-group"><label>Their Name</label><input type="text" name="forward_name" placeholder="Recipient's name"></div>
+            <div class="form-group"><label>Their Email</label><input type="email" name="_cc" placeholder="Recipient's email address"></div>
+          </div>
+        </div>
         <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message →</button>
       </form>
     </div>
@@ -415,6 +429,11 @@
   </footer>
 
   <script>
+    // Forward-to-someone toggle
+    document.getElementById('forwardToggle').addEventListener('change', function() {
+      document.getElementById('forwardSection').classList.toggle('open', this.checked);
+    });
+
     // Hamburger toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
