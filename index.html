@@ -83,7 +83,6 @@
     }
     
     html { scroll-behavior: smooth; scroll-padding-top: 110px; }
-    #about, #services, #projects, #contact { scroll-margin-top: 110px; }
     body { font-family: var(--font-body); background: var(--white); color: var(--dark); line-height: 1.6; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
@@ -435,7 +434,11 @@
   <script>
     // Forward-to-someone toggle
     document.getElementById('forwardToggle').addEventListener('change', function() {
-      document.getElementById('forwardSection').classList.toggle('open', this.checked);
+      const section = document.getElementById('forwardSection');
+      section.classList.toggle('open', this.checked);
+      if (!this.checked) {
+        section.querySelectorAll('input').forEach(i => i.value = '');
+      }
     });
 
     // Hamburger toggle
