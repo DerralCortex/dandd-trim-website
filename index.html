@@ -431,6 +431,24 @@
         navLinks.classList.remove('open');
       });
     });
+
+    // Keep the screen awake while the page is open (e.g. showing the
+    // gallery to a client) so the phone doesn't auto-lock or dim.
+    let wakeLock = null;
+    async function requestWakeLock() {
+      if (!('wakeLock' in navigator)) return;
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+      } catch (err) {
+        // Denied (low battery, browser setting, etc.) — nothing to do.
+      }
+    }
+    document.addEventListener('visibilitychange', () => {
+      // The browser releases the lock when the tab is hidden; re-acquire
+      // when the visitor comes back.
+      if (document.visibilityState === 'visible') requestWakeLock();
+    });
+    requestWakeLock();
   </script>
 </body>
 </html>
