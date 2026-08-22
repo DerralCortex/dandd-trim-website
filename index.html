@@ -432,5 +432,14 @@
       });
     });
   </script>
+  <script>
+    // Visit counter — pings our own stats endpoint (field.trim.services).
+    (function () {
+      try {
+        navigator.sendBeacon('https://field.trim.services/api/site-hit',
+          JSON.stringify({ p: location.pathname, r: document.referrer }))
+      } catch (e) {}
+    })()
+  </script>
 </body>
 </html>
