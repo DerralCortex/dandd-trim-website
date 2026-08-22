@@ -301,7 +301,14 @@
 
     /* ============ Gallery ============ */
     .projects { background: var(--cream); }
-    .gal-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+    .gal-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .gf { border: 1.5px solid var(--border); background: var(--white); border-radius: 999px;
+      padding: 10px 18px; font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      color: var(--ink-soft); cursor: pointer; min-height: 44px; }
+    .gf.on { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+    .gal-item.gal-hide { display: none; }
+    .gal-item.gal-wide { aspect-ratio: auto; grid-column: 1 / -1; }
+    .gal-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
     @media (min-width: 640px) { .gal-grid { grid-template-columns: 1fr 1fr; } }
     @media (min-width: 768px) { .gal-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
     .gal-item {
@@ -585,30 +592,65 @@
       <span class="overline">Recent work</span>
       <h2 class="sec">Projects</h2>
       <p class="sec-sub">A few jobs from around the Inland Northwest. Tap any photo for a closer look.</p>
+      <div class="gal-filters" role="group" aria-label="Filter projects">
+        <button class="gf on" data-f="all">All</button>
+        <button class="gf" data-f="doors">Doors &amp; Trim</button>
+        <button class="gf" data-f="builtins">Built-ins &amp; Mantles</button>
+        <button class="gf" data-f="walls">Walls &amp; Ceilings</button>
+        <button class="gf" data-f="stairs">Stairs</button>
+      </div>
       <div class="gal-grid">
-        <button class="gal-item" type="button" data-full="images/gallery/built-in-bookshelf-fireplace.jpg" data-cap="Built-in media wall with fireplace">
+        <button class="gal-item" type="button" data-cat="builtins" data-full="images/gallery/built-in-bookshelf-fireplace.jpg" data-cap="Built-in media wall with fireplace">
           <img src="images/tiles/built-in-bookshelf-fireplace.jpg" alt="Built-in media wall with fireplace" loading="lazy">
           <span class="gal-cap">Built-in media wall with fireplace</span>
         </button>
-        <button class="gal-item" type="button" data-full="images/gallery/black-accent-wall.jpg" data-cap="Black board-and-batten under a shiplap ceiling">
+        <button class="gal-item" type="button" data-cat="walls" data-full="images/gallery/black-accent-wall.jpg" data-cap="Black board-and-batten under a shiplap ceiling">
           <img src="images/tiles/black-accent-wall.jpg" alt="Black board-and-batten under a shiplap ceiling" loading="lazy">
           <span class="gal-cap">Black board-and-batten under a shiplap ceiling</span>
         </button>
-        <button class="gal-item" type="button" data-full="images/gallery/navy-board-batten.jpg" data-cap="Navy board-and-batten bonus room">
-          <img src="images/tiles/navy-board-batten.jpg" alt="Navy board-and-batten bonus room" loading="lazy">
-          <span class="gal-cap">Navy board-and-batten bonus room</span>
+        <button class="gal-item" type="button" data-cat="doors" data-full="images/full/xbrace-door.jpg" data-cap="X-brace entry with sidelights and transom">
+          <img src="images/tiles/xbrace-door.jpg" alt="X-brace entry with sidelights and transom" loading="lazy">
+          <span class="gal-cap">X-brace entry with sidelights and transom</span>
         </button>
-        <button class="gal-item" type="button" data-full="images/board-batten-detail.jpg" data-cap="Floor-to-ceiling board-and-batten">
+        <button class="gal-item" type="button" data-cat="walls" data-full="images/hero-great-room.jpg" data-cap="Cedar tongue-and-groove vaulted ceiling">
+          <img src="images/tiles/cedar-tg-ceiling.jpg" alt="Cedar tongue-and-groove vaulted ceiling" loading="lazy">
+          <span class="gal-cap">Cedar tongue-and-groove vaulted ceiling</span>
+        </button>
+        <button class="gal-item" type="button" data-cat="builtins" data-full="images/full/mudroom-lockers.jpg" data-cap="Mudroom lockers with cubbies and bench">
+          <img src="images/tiles/mudroom-lockers.jpg" alt="Mudroom lockers with cubbies and bench" loading="lazy">
+          <span class="gal-cap">Mudroom lockers with cubbies and bench</span>
+        </button>
+        <button class="gal-item" type="button" data-cat="stairs" data-full="images/stairs-rail.jpg" data-cap="Stair rail with floating beam shelf">
+          <img src="images/tiles/stairs-rail.jpg" alt="Stair rail with floating beam shelf" loading="lazy">
+          <span class="gal-cap">Stair rail with floating beam shelf</span>
+        </button>
+        <button class="gal-item" type="button" data-cat="walls" data-full="images/board-batten-detail.jpg" data-cap="Floor-to-ceiling board-and-batten">
           <img src="images/tiles/board-batten-detail.jpg" alt="Floor-to-ceiling board-and-batten" loading="lazy">
           <span class="gal-cap">Floor-to-ceiling board-and-batten</span>
         </button>
-        <button class="gal-item" type="button" data-full="images/gallery/white-board-batten.jpg" data-cap="White board-and-batten bonus room">
+        <button class="gal-item" type="button" data-cat="doors" data-full="images/full/barn-door-bath.jpg" data-cap="X-brace barn door">
+          <img src="images/tiles/barn-door-bath.jpg" alt="X-brace barn door" loading="lazy">
+          <span class="gal-cap">X-brace barn door</span>
+        </button>
+        <button class="gal-item gal-wide" type="button" data-cat="builtins" data-full="images/window-seat-bench.jpg" data-cap="Window-seat bench at the fireplace">
+          <img src="images/tiles/window-seat-bench.jpg" alt="Window-seat bench at the fireplace" loading="lazy">
+          <span class="gal-cap">Window-seat bench at the fireplace</span>
+        </button>
+        <button class="gal-item" type="button" data-cat="walls" data-full="images/gallery/white-board-batten.jpg" data-cap="White board-and-batten bonus room">
           <img src="images/tiles/white-board-batten.jpg" alt="White board-and-batten bonus room" loading="lazy">
           <span class="gal-cap">White board-and-batten bonus room</span>
         </button>
-        <button class="gal-item" type="button" data-full="images/full/barn-door-bath.jpg" data-cap="X-brace barn door">
-          <img src="images/tiles/barn-door-bath.jpg" alt="X-brace barn door" loading="lazy">
-          <span class="gal-cap">X-brace barn door</span>
+        <button class="gal-item" type="button" data-cat="stairs" data-full="images/newel-oak-rail.jpg" data-cap="Newel posts and oak rail going in">
+          <img src="images/tiles/newel-oak-rail.jpg" alt="Newel posts and oak rail going in" loading="lazy">
+          <span class="gal-cap">Newel posts and oak rail going in</span>
+        </button>
+        <button class="gal-item" type="button" data-cat="builtins" data-full="images/closet-stained-door.jpg" data-cap="Closet built-ins behind a stained door">
+          <img src="images/tiles/closet-stained-door.jpg" alt="Closet built-ins behind a stained door" loading="lazy">
+          <span class="gal-cap">Closet built-ins behind a stained door</span>
+        </button>
+        <button class="gal-item" type="button" data-cat="walls" data-full="images/gallery/navy-board-batten.jpg" data-cap="Navy board-and-batten bonus room">
+          <img src="images/tiles/navy-board-batten.jpg" alt="Navy board-and-batten bonus room" loading="lazy">
+          <span class="gal-cap">Navy board-and-batten bonus room</span>
         </button>
       </div>
     </div>
@@ -842,6 +884,21 @@
       } catch (e) {}
     })();
   </script>
-  <script>(function(){try{navigator.sendBeacon('https://field.trim.services/api/site-hit',JSON.stringify({p:location.pathname,r:document.referrer}))}catch(e){}})()</script>
+  <script>(function(){try{navigator.sendBeacon('https://field.trim.services/api/site-hit',JSON.stringify({p:location.pathname,r:document.referrer}))}catch(e){}})()
+  // Gallery category filters
+  (function(){
+    var fs = document.querySelectorAll('.gf');
+    fs.forEach(function(b){
+      b.addEventListener('click', function(){
+        fs.forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on');
+        var f = b.getAttribute('data-f');
+        document.querySelectorAll('.gal-item').forEach(function(it){
+          it.classList.toggle('gal-hide', f !== 'all' && it.getAttribute('data-cat') !== f);
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
