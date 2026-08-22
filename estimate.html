@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Photo Estimate — D and D Trim and Cabinets</title>
+<meta name="description" content="Send a few phone photos of your space and a real carpenter — not a call center — will get back to you with a real estimate within one business day. Finish carpentry, built-ins, and cabinets in Post Falls, Coeur d'Alene, and the Inland Northwest.">
+<link rel="canonical" href="https://danddtrim.com/estimate.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Photo Estimate — D and D Trim and Cabinets">
+<meta property="og:description" content="Snap a few photos, answer a few taps, and a real carpenter gets back to you within one business day.">
+<meta property="og:url" content="https://danddtrim.com/estimate.html">
+<meta property="og:image" content="https://danddtrim.com/images/hero-great-room.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A961; --gold-dark:#B8975A; --cream:#FAF8F3; --cream-dark:#F5F1E8;
+  --ink:#232323; --ink-soft:#3D3D3D; --grey:#6B6B6B; --white:#fff;
+  --border:#E7DFD3; --green:#2F6B3C; --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:400;color:var(--ink);background:var(--cream);
+  line-height:1.6;min-height:100vh;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.header-wrap{
+  max-width:1120px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo-link{display:flex;align-items:center;min-height:48px}
+.logo-link img{height:40px;width:auto}
+.header-phone{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:600;font-size:16px;text-decoration:none;color:var(--ink);
+  min-height:48px;padding:0 6px;border-radius:10px;
+}
+@media(hover:hover){.header-phone:hover{color:var(--gold-dark)}}
+.header-phone svg{flex:none}
+
+/* ---------- Layout ---------- */
+main{
+  max-width:660px;margin:0 auto;
+  padding:96px 16px 48px;
+}
+.page-eyebrow{
+  text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-dark);font-weight:600;margin-bottom:6px;
+}
+.page-title{
+  font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:clamp(24px,5vw,32px);text-align:center;line-height:1.25;
+  margin-bottom:18px;
+}
+
+/* ---------- Panel ---------- */
+.panel{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:0 2px 12px rgba(35,35,35,.06);
+  padding:22px 20px 26px;position:relative;overflow:hidden;
+}
+@media(min-width:640px){.panel{padding:28px 32px 34px}}
+
+.panel-top{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:32px;margin-bottom:10px;
+}
+.back-link{
+  background:none;border:none;cursor:pointer;
+  font-size:15px;font-weight:500;color:var(--grey);
+  display:inline-flex;align-items:center;gap:5px;
+  min-height:48px;padding:0 10px 0 2px;margin-left:-2px;border-radius:10px;
+  visibility:hidden;
+}
+.back-link.show{visibility:visible}
+@media(hover:hover){.back-link:hover{color:var(--ink)}}
+.dots{display:flex;gap:7px;align-items:center}
+.dots span{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--border);transition:background .25s,transform .25s;
+}
+.dots span.done{background:var(--gold)}
+.dots span.now{background:var(--gold);transform:scale(1.35)}
+
+/* ---------- Steps ---------- */
+.step{display:none}
+.step.active{display:block;animation:stepIn .28s ease both}
+@keyframes stepIn{
+  from{opacity:0;transform:translateX(14px)}
+  to{opacity:1;transform:translateX(0)}
+}
+.step.active.back{animation:stepInBack .28s ease both}
+@keyframes stepInBack{
+  from{opacity:0;transform:translateX(-14px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .step.active,.step.active.back{animation:none}
+}
+.step h2{
+  font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:clamp(21px,4.5vw,26px);line-height:1.3;margin-bottom:4px;
+}
+.step .sub{color:var(--grey);font-size:15px;margin-bottom:16px}
+.step h2:only-of-type{margin-bottom:16px}
+
+/* ---------- Type tiles ---------- */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:520px){.tiles{gap:12px}}
+.tile{
+  border:2px solid var(--border);border-radius:var(--radius);
+  background:var(--white);cursor:pointer;padding:0;overflow:hidden;
+  text-align:left;transition:border-color .15s,box-shadow .15s;
+  display:flex;flex-direction:column;position:relative;
+}
+@media(hover:hover){.tile:hover{border-color:var(--gold)}}
+.tile.selected{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,169,97,.35)}
+.tile.selected::after{
+  content:'\2713';position:absolute;top:8px;right:8px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--gold);color:#232323;
+  font-size:15px;font-weight:700;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 1px 4px rgba(35,35,35,.3);pointer-events:none;
+}
+.tile img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--cream-dark);
+}
+.tile .tile-label{
+  display:flex;align-items:center;min-height:48px;
+  padding:8px 12px;font-weight:600;font-size:14.5px;line-height:1.3;
+}
+.tile.tile-other{
+  align-items:center;justify-content:center;flex-direction:row;
+  min-height:64px;background:var(--cream-dark);
+  grid-column:1 / -1;
+}
+.tile.tile-other .tile-label{min-height:64px;font-size:15.5px}
+
+/* Tile photo art direction */
+.tile img.pos-door{object-position:center 58%}
+.tile img.pos-lockers{object-position:42% 45%}
+.tile img.pos-fireplace{object-position:center 55%}
+.tile img.pos-accent{object-position:32% 62%}
+.tile img.pos-stairs{object-position:22% center}
+.tile img.pos-closet{object-position:62% 55%}
+
+/* ---------- Chips ---------- */
+.chips{display:flex;flex-direction:column;gap:10px}
+.chip{
+  border:2px solid var(--border);border-radius:12px;background:var(--white);
+  cursor:pointer;min-height:56px;padding:12px 18px;
+  font-size:16.5px;font-weight:500;text-align:left;
+  transition:border-color .15s,background .15s;
+  display:flex;align-items:center;
+}
+@media(hover:hover){.chip:hover{border-color:var(--gold);background:var(--cream)}}
+.chip.selected{border-color:var(--gold);background:var(--cream-dark);font-weight:600}
+.chip.selected::before{
+  content:'\2713';color:var(--gold-dark);font-weight:700;
+  margin-right:10px;flex:none;
+}
+
+/* ---------- Photos step ---------- */
+.drop-tile{
+  border:2px dashed var(--gold);border-radius:var(--radius);
+  background:var(--cream);cursor:pointer;width:100%;
+  min-height:150px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:8px;
+  padding:22px 16px;text-align:center;transition:background .15s;
+}
+@media(hover:hover){.drop-tile:hover{background:var(--cream-dark)}}
+.drop-tile .cam{color:var(--gold-dark)}
+.drop-tile strong{font-size:16.5px;font-weight:600}
+.drop-tile small{color:var(--grey);font-size:14px}
+.photo-copy{color:var(--grey);font-size:14.5px;margin-top:12px;text-align:center}
+.thumbs{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;
+}
+@media(max-width:420px){.thumbs{grid-template-columns:repeat(3,1fr)}}
+.thumb{
+  position:relative;border-radius:10px;overflow:hidden;
+  border:1px solid var(--border);aspect-ratio:1;background:var(--cream-dark);
+}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .no-preview{
+  width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;
+  font-size:11px;color:var(--grey);padding:4px;text-align:center;
+  word-break:break-all;
+}
+.thumb .rm{
+  position:absolute;top:4px;right:4px;
+  width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(35,35,35,.75);color:#fff;font-size:15px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+}
+@media(hover:hover){.thumb .rm:hover{background:var(--ink)}}
+.photo-note{font-size:13.5px;color:var(--grey);margin-top:8px;text-align:center;min-height:1.2em}
+.step-actions{margin-top:20px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.skip-link{
+  background:none;border:none;cursor:pointer;font-size:15px;
+  color:var(--grey);text-decoration:underline;min-height:48px;padding:0 12px;
+}
+@media(hover:hover){.skip-link:hover{color:var(--ink)}}
+
+/* ---------- Buttons ---------- */
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#C9A961,#B8975A);
+  color:#232323;border:none;border-radius:12px;cursor:pointer;
+  padding:14px 28px;font-weight:700;font-size:17px;min-height:52px;
+  text-decoration:none;transition:filter .15s,transform .1s;
+}
+@media(hover:hover){.btn-primary:hover{filter:brightness(1.05)}}
+.btn-primary:active{transform:scale(.99)}
+.btn-primary:disabled{opacity:.6;cursor:default}
+.btn-block{width:100%}
+
+/* ---------- Contact form ---------- */
+.field{margin-bottom:14px}
+.field label{
+  display:block;font-size:14px;font-weight:600;margin-bottom:5px;
+}
+.field label .opt{color:var(--grey);font-weight:400}
+.field input,.field textarea{
+  width:100%;font-family:inherit;font-size:16px;color:var(--ink);
+  border:1.5px solid var(--border);border-radius:10px;background:var(--white);
+  padding:13px 14px;min-height:50px;
+}
+.field textarea{min-height:96px;resize:vertical;line-height:1.5}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,97,.25);
+}
+.coupon-toggle{
+  background:none;border:none;cursor:pointer;font-size:14.5px;
+  color:var(--gold-dark);text-decoration:underline;font-weight:500;
+  min-height:44px;padding:0 4px;margin-bottom:6px;
+}
+@media(hover:hover){.coupon-toggle:hover{color:var(--ink)}}
+.form-error{
+  color:#8C2F2F;font-size:14.5px;font-weight:500;margin:10px 0 0;
+  min-height:1.2em;text-align:center;
+}
+.hp-wrap{position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden}
+
+/* ---------- Fallback panel ---------- */
+.fallback{
+  margin-top:16px;border:1.5px solid var(--gold);border-radius:var(--radius);
+  background:var(--cream);padding:18px;text-align:center;
+}
+.fallback p{font-size:15.5px;margin-bottom:12px}
+.fallback .tel-big{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:20px;font-weight:700;text-decoration:none;color:var(--ink);
+  min-height:52px;padding:8px 20px;border-radius:12px;background:var(--white);
+  border:1px solid var(--border);
+}
+@media(hover:hover){.fallback .tel-big:hover{border-color:var(--gold)}}
+.fallback .retry{margin-top:10px}
+
+/* ---------- Success ---------- */
+.success{text-align:center;padding:14px 4px 6px}
+.success .check{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 18px;
+  background:var(--green);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.success h2{
+  font-family:'Playfair Display',Georgia,serif;font-weight:600;
+  font-size:clamp(22px,5vw,28px);margin-bottom:10px;
+}
+.success p{font-size:16px;color:var(--ink-soft);margin-bottom:14px;max-width:44ch;margin-left:auto;margin-right:auto}
+.success .call-line{font-size:15.5px;color:var(--grey)}
+.success .call-line a{font-weight:700;color:var(--ink);text-decoration:none}
+@media(hover:hover){.success .call-line a:hover{color:var(--gold-dark)}}
+.success .home-link{
+  display:inline-block;margin-top:20px;font-size:15px;color:var(--gold-dark);
+  font-weight:500;
+}
+
+/* ---------- Reassurance strip ---------- */
+.reassure{
+  text-align:center;color:var(--grey);font-size:13.5px;
+  margin-top:18px;padding:0 12px;line-height:1.7;
+}
+
+/* ---------- Focus visibility ---------- */
+.tile:focus-visible,.chip:focus-visible,.drop-tile:focus-visible,
+.btn-primary:focus-visible,.back-link:focus-visible,.skip-link:focus-visible,
+.coupon-toggle:focus-visible,.thumb .rm:focus-visible,
+.header-phone:focus-visible,.logo-link:focus-visible,a:focus-visible{
+  outline:3px solid var(--gold);outline-offset:2px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  background:var(--ink);color:#D8D3C8;margin-top:56px;
+  padding:36px 20px 30px;text-align:center;font-size:14px;line-height:1.8;
+}
+.site-footer .wordmark{
+  font-family:'Playfair Display',Georgia,serif;font-weight:700;
+  font-size:20px;color:#fff;margin-bottom:8px;
+}
+.site-footer a{color:var(--gold);text-decoration:none}
+@media(hover:hover){.site-footer a:hover{text-decoration:underline}}
+.site-footer .fine{margin-top:10px;font-size:13px;color:#A8A296}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-wrap">
+    <a href="/" class="logo-link" aria-label="D and D Trim and Cabinets — home">
+      <img src="images/DandD-new-logo-no-white.png" alt="D and D Trim and Cabinets" height="40">
+    </a>
+    <a href="tel:2087558377" class="header-phone" aria-label="Call 208-755-8377">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>208-755-8377</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <p class="page-eyebrow">Free photo estimate</p>
+  <h1 class="page-title">A real number, from a real carpenter</h1>
+
+  <div class="panel" id="panel">
+    <div class="panel-top" id="panelTop">
+      <button type="button" class="back-link" id="backBtn" aria-label="Go back one step">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </button>
+      <div class="dots" id="dots" role="img" aria-label="Progress"></div>
+    </div>
+
+    <!-- Step: project type -->
+    <section class="step" id="step-type" aria-label="Project type">
+      <h2>What are we building for you?</h2>
+      <div class="tiles" role="group" aria-label="Choose a project type">
+        <button type="button" class="tile" data-type="doors-trim">
+          <img src="images/full/xbrace-door.jpg" class="pos-door" alt="Dark-stained X-brace front door with sidelights and transom windows" loading="lazy">
+          <span class="tile-label">Doors &amp; Trim</span>
+        </button>
+        <button type="button" class="tile" data-type="built-ins">
+          <img src="images/full/mudroom-lockers.jpg" class="pos-lockers" alt="Walnut mudroom locker bench with cubbies" loading="lazy">
+          <span class="tile-label">Built-ins &amp; Shelving</span>
+        </button>
+        <button type="button" class="tile" data-type="fireplace-mantle">
+          <img src="images/gallery/built-in-bookshelf-fireplace.jpg" class="pos-fireplace" alt="Black built-in bookshelves surrounding an electric fireplace" loading="lazy">
+          <span class="tile-label">Fireplace &amp; Mantle</span>
+        </button>
+        <button type="button" class="tile" data-type="accent-walls-ceilings">
+          <img src="images/gallery/black-accent-wall.jpg" class="pos-accent" alt="Black board-and-batten accent wall under a shiplap ceiling with wood beam" loading="lazy">
+          <span class="tile-label">Accent Walls &amp; Ceilings</span>
+        </button>
+        <button type="button" class="tile" data-type="stairs-railings">
+          <img src="images/tiles/stairs-rail.jpg" alt="Finished stair rail" loading="lazy">
+          <span class="tile-label">Stairs &amp; Railings</span>
+        </button>
+        <button type="button" class="tile" data-type="cabinets-closets">
+          <img src="images/gallery/butlers-pantry.jpg" class="pos-closet" alt="Custom walk-in closet built-ins with drawers and hanging rod" loading="lazy">
+          <span class="tile-label">Cabinets &amp; Closets</span>
+        </button>
+        <button type="button" class="tile tile-other" data-type="other">
+          <span class="tile-label">Something else — tell us about it</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Step: scope -->
+    <section class="step" id="step-scope" aria-label="Project scope">
+      <h2 id="scopeQ">Scope</h2>
+      <div class="chips" id="scopeChips" role="group" aria-label="Scope options"></div>
+    </section>
+
+    <!-- Step: timeline -->
+    <section class="step" id="step-timeline" aria-label="Timeline">
+      <h2>When would you like it done?</h2>
+      <div class="chips" role="group" aria-label="Timeline options">
+        <button type="button" class="chip" data-timeline="Ready when you are — we're flexible">Ready when you are — we're flexible</button>
+        <button type="button" class="chip" data-timeline="In the next few months">In the next few months</button>
+        <button type="button" class="chip" data-timeline="As soon as possible">As soon as possible</button>
+      </div>
+    </section>
+
+    <!-- Step: priority -->
+    <section class="step" id="step-priority" aria-label="Priority">
+      <h2>What matters most to you?</h2>
+      <div class="chips" role="group" aria-label="Priority options">
+        <button type="button" class="chip" data-priority="Craftsmanship & detail">Craftsmanship &amp; detail</button>
+        <button type="button" class="chip" data-priority="Matching my home's style">Matching my home's style</button>
+        <button type="button" class="chip" data-priority="Staying on schedule">Staying on schedule</button>
+        <button type="button" class="chip" data-priority="Lowest price">Lowest price</button>
+      </div>
+    </section>
+
+    <!-- Step: photos -->
+    <section class="step" id="step-photos" aria-label="Photos">
+      <h2>Snap a few photos of the space</h2>
+      <button type="button" class="drop-tile" id="dropTile">
+        <svg class="cam" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Tap to add photos</strong>
+        <small>or take them right now with your camera</small>
+      </button>
+      <input type="file" id="photoInput" accept="image/*" multiple hidden aria-label="Add photos of your space">
+      <p class="photo-copy">Even quick phone pictures are plenty. 2–4 photos is perfect.</p>
+      <div class="thumbs" id="thumbs"></div>
+      <p class="photo-note" id="photoNote" role="status" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="btn-primary btn-block" id="photosNext" hidden>Continue</button>
+        <button type="button" class="skip-link" id="photosSkip">Skip for now</button>
+      </div>
+    </section>
+
+    <!-- Step: contact -->
+    <section class="step" id="step-contact" aria-label="Contact details">
+      <h2>Where should we send your estimate?</h2>
+      <p class="sub" id="contactSub">A carpenter looks at every request personally.</p>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="fName">Name</label>
+          <input type="text" id="fName" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="fPhone">Phone</label>
+          <input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="fEmail">Email <span class="opt">(optional)</span></label>
+          <input type="email" id="fEmail" name="email" autocomplete="email" inputmode="email">
+        </div>
+        <div class="field">
+          <label for="fCity">City</label>
+          <input type="text" id="fCity" name="city" list="cityList" autocomplete="address-level2">
+          <datalist id="cityList">
+            <option value="Post Falls"></option>
+            <option value="Coeur d'Alene"></option>
+            <option value="Hayden"></option>
+            <option value="Rathdrum"></option>
+            <option value="Spokane Valley"></option>
+            <option value="Liberty Lake"></option>
+            <option value="Other"></option>
+          </datalist>
+        </div>
+        <button type="button" class="coupon-toggle" id="couponToggle">Have a coupon code?</button>
+        <div class="field" id="couponField" hidden>
+          <label for="fCoupon">Coupon code</label>
+          <input type="text" id="fCoupon" name="coupon" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="fDetails" id="detailsLabel">Anything else we should know? <span class="opt">(optional)</span></label>
+          <textarea id="fDetails" name="details"></textarea>
+        </div>
+        <div class="hp-wrap" aria-hidden="true">
+          <label for="fWebsite">Website</label>
+          <input type="text" id="fWebsite" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary btn-block" id="submitBtn">Send my photos →</button>
+        <p class="form-error" id="formError" role="alert"></p>
+      </form>
+      <div class="fallback" id="fallback" hidden>
+        <p>That didn't go through — sorry about that. Call or text and we'll take it from there.</p>
+        <a class="tel-big" href="tel:2087558377">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          208-755-8377
+        </a>
+        <div class="retry">
+          <button type="button" class="skip-link" id="retryBtn">Try sending again</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success -->
+    <section class="step success" id="step-success" aria-label="Request sent">
+      <div class="check" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h2>Got it.</h2>
+      <p>A real carpenter — not a call center — will look at your photos and get back to you within one business day.</p>
+      <p class="call-line">Sooner? Call Derral's crew: <a href="tel:2087558377">208-755-8377</a></p>
+      <a class="home-link" href="/">← Back to danddtrim.com</a>
+    </section>
+  </div>
+
+  <p class="reassure">Family-run since 2004 · Idaho Registered Contractor RCE-70349 · Your photos stay with us — never shared.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wordmark">D and D Trim &amp; Cabinets</div>
+  <div>Serving Post Falls, Coeur d'Alene, Hayden, Rathdrum &amp; Spokane Valley</div>
+  <div><a href="tel:2087558377">208-755-8377</a> · Mon–Fri 6:00 AM–4:00 PM</div>
+  <div>Idaho Registered Contractor RCE-70349 · Bonded &amp; Insured</div>
+  <div><a href="https://www.facebook.com/100091570056533/" rel="noopener">Find us on Facebook</a></div>
+  <div class="fine">© 2026 D and D Trim and Cabinets Inc.</div>
+</footer>
+
+<script>(function(){try{navigator.sendBeacon('https://field.trim.services/api/site-hit',JSON.stringify({p:location.pathname,r:document.referrer}))}catch(e){}})()</script>
+<script>
+(function(){
+'use strict';
+
+var API='https://field.trim.services/api/estimate-lead';
+var MAX_PHOTOS=8, MAX_DIM=1600, JPEG_Q=0.8;
+
+/* ---------- Coupon persistence ---------- */
+try{
+  var qcode=new URLSearchParams(location.search).get('code');
+  if(qcode) localStorage.setItem('dd_coupon',qcode);
+}catch(e){}
+
+/* ---------- One-shot beacons ---------- */
+var startSent=false, submitSent=false;
+function beacon(p){
+  try{navigator.sendBeacon('https://field.trim.services/api/site-hit',JSON.stringify({p:p,r:document.referrer}))}catch(e){}
+}
+function fireStart(){ if(!startSent){ startSent=true; beacon('/estimate#start'); } }
+function fireSubmit(){ if(!submitSent){ submitSent=true; beacon('/estimate#submit'); } }
+
+/* ---------- State (memory only) ---------- */
+var state={ type:null, scopeQ:null, scopeA:null, timeline:null, priority:null, photos:[] };
+
+var SCOPE={
+  'doors-trim':          {q:'How much of the home?', opts:['One room','A few rooms','Whole house']},
+  'built-ins':           {q:'Where?', opts:['Living room','Office','Mudroom','Closet','Other']},
+  'fireplace-mantle':    {q:'How far do we take it?', opts:['Mantle only','Full surround','Floor-to-ceiling']},
+  'accent-walls-ceilings':{q:'How much are we covering?', opts:['One wall','One ceiling','Multiple rooms']},
+  'stairs-railings':     {q:'What does the staircase need?', opts:['Handrail','Full railing','Treads & full remodel']},
+  'cabinets-closets':    {q:'Which room?', opts:['Kitchen','Bathroom','Closet system','Garage']}
+};
+
+/* ---------- Step machine ---------- */
+var stepEls={
+  type:document.getElementById('step-type'),
+  scope:document.getElementById('step-scope'),
+  timeline:document.getElementById('step-timeline'),
+  priority:document.getElementById('step-priority'),
+  photos:document.getElementById('step-photos'),
+  contact:document.getElementById('step-contact'),
+  success:document.getElementById('step-success')
+};
+var backBtn=document.getElementById('backBtn');
+var dotsEl=document.getElementById('dots');
+var panelTop=document.getElementById('panelTop');
+var idx=0;
+
+function sequence(){
+  var seq=['type','scope','timeline','priority','photos','contact'];
+  if(state.type==='other') seq.splice(seq.indexOf('scope'),1);
+  return seq;
+}
+
+function renderDots(){
+  var seq=sequence(), html='';
+  for(var i=0;i<seq.length;i++){
+    html+='<span class="'+(i<idx?'done':(i===idx?'now':''))+'"></span>';
+  }
+  dotsEl.innerHTML=html;
+  dotsEl.setAttribute('aria-label','Step '+(idx+1)+' of '+seq.length);
+}
+
+function show(i,goingBack){
+  var seq=sequence();
+  idx=Math.max(0,Math.min(i,seq.length-1));
+  var key=seq[idx];
+  for(var k in stepEls){ stepEls[k].classList.remove('active','back'); }
+  if(key==='scope') buildScope();
+  if(key==='contact') prepContact();
+  stepEls[key].classList.add('active');
+  if(goingBack) stepEls[key].classList.add('back');
+  backBtn.classList.toggle('show',idx>0);
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function next(){ show(idx+1,false); }
+backBtn.addEventListener('click',function(){ show(idx-1,true); });
+
+function showSuccess(){
+  for(var k in stepEls){ stepEls[k].classList.remove('active','back'); }
+  stepEls.success.classList.add('active');
+  panelTop.style.display='none';
+  fireSubmit();
+}
+
+/* ---------- First-interaction beacon ---------- */
+document.getElementById('panel').addEventListener('pointerdown',fireStart,{once:true});
+document.getElementById('panel').addEventListener('keydown',fireStart,{once:true});
+
+/* ---------- Step 1: type tiles ---------- */
+var tiles=stepEls.type.querySelectorAll('.tile');
+tiles.forEach(function(t){
+  t.addEventListener('click',function(){
+    tiles.forEach(function(x){x.classList.remove('selected')});
+    t.classList.add('selected');
+    state.type=t.getAttribute('data-type');
+    if(state.type==='other'){ state.scopeQ=null; state.scopeA=null; }
+    setTimeout(next,160);
+  });
+});
+
+/* ---------- Step 2: scope ---------- */
+function buildScope(){
+  var cfg=SCOPE[state.type];
+  if(!cfg) return;
+  document.getElementById('scopeQ').textContent=cfg.q;
+  state.scopeQ=cfg.q;
+  var wrap=document.getElementById('scopeChips');
+  wrap.innerHTML='';
+  cfg.opts.forEach(function(opt){
+    var b=document.createElement('button');
+    b.type='button'; b.className='chip'+(state.scopeA===opt?' selected':''); b.textContent=opt;
+    b.addEventListener('click',function(){
+      wrap.querySelectorAll('.chip').forEach(function(x){x.classList.remove('selected')});
+      b.classList.add('selected');
+      state.scopeA=opt;
+      setTimeout(next,160);
+    });
+    wrap.appendChild(b);
+  });
+}
+
+/* ---------- Steps 3 & 4: timeline, priority ---------- */
+function wireChips(stepEl,attr,setter){
+  stepEl.querySelectorAll('.chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      stepEl.querySelectorAll('.chip').forEach(function(x){x.classList.remove('selected')});
+      b.classList.add('selected');
+      setter(b.getAttribute(attr));
+      setTimeout(next,160);
+    });
+  });
+}
+wireChips(stepEls.timeline,'data-timeline',function(v){state.timeline=v});
+wireChips(stepEls.priority,'data-priority',function(v){state.priority=v});
+
+/* ---------- Step 5: photos ---------- */
+var photoInput=document.getElementById('photoInput');
+var dropTile=document.getElementById('dropTile');
+var thumbsEl=document.getElementById('thumbs');
+var photoNote=document.getElementById('photoNote');
+var photosNext=document.getElementById('photosNext');
+
+dropTile.addEventListener('click',function(){ photoInput.click(); });
+document.getElementById('photosSkip').addEventListener('click',next);
+photosNext.addEventListener('click',next);
+
+photoInput.addEventListener('change',function(){
+  var files=Array.prototype.slice.call(photoInput.files||[]);
+  photoInput.value='';
+  if(!files.length) return;
+  var room=MAX_PHOTOS-state.photos.length;
+  if(room<=0){ photoNote.textContent='That’s the limit — 8 photos is plenty for us to work with.'; return; }
+  var skipped=files.length-room;
+  files=files.slice(0,room);
+  photoNote.textContent='Adding…';
+  var jobs=files.map(function(f){ return shrink(f); });
+  Promise.all(jobs).then(function(results){
+    results.forEach(function(p){ if(p) state.photos.push(p); });
+    photoNote.textContent = skipped>0
+      ? 'Added. We kept the first '+room+' — 8 photos max.'
+      : '';
+    renderThumbs();
+  });
+});
+
+function shrink(file){
+  return new Promise(function(resolve){
+    var url;
+    try{ url=URL.createObjectURL(file); }catch(e){ resolve(fallbackPhoto(file)); return; }
+    var img=new Image();
+    var done=false;
+    img.onload=function(){
+      if(done) return; done=true;
+      try{
+        var w=img.naturalWidth, h=img.naturalHeight;
+        if(!w||!h) throw new Error('no dims');
+        var s=Math.min(1,MAX_DIM/Math.max(w,h));
+        var cw=Math.max(1,Math.round(w*s)), ch=Math.max(1,Math.round(h*s));
+        var c=document.createElement('canvas');
+        c.width=cw; c.height=ch;
+        c.getContext('2d').drawImage(img,0,0,cw,ch);
+        c.toBlob(function(blob){
+          URL.revokeObjectURL(url);
+          if(!blob){ resolve(fallbackPhoto(file)); return; }
+          var name=(file.name||'photo').replace(/\.[^.]+$/,'')+'.jpg';
+          resolve({blob:blob,name:name,preview:URL.createObjectURL(blob)});
+        },'image/jpeg',JPEG_Q);
+      }catch(e){
+        URL.revokeObjectURL(url);
+        resolve(fallbackPhoto(file));
+      }
+    };
+    img.onerror=function(){
+      if(done) return; done=true;
+      URL.revokeObjectURL(url);
+      resolve(fallbackPhoto(file));
+    };
+    img.src=url;
+  });
+}
+
+/* HEIC etc.: canvas decode failed — attach the original file untouched */
+function fallbackPhoto(file){
+  return {blob:file,name:file.name||'photo',preview:null};
+}
+
+function renderThumbs(){
+  thumbsEl.innerHTML='';
+  state.photos.forEach(function(p,i){
+    var d=document.createElement('div');
+    d.className='thumb';
+    if(p.preview){
+      var im=document.createElement('img');
+      im.src=p.preview; im.alt='Photo '+(i+1)+' of your space';
+      d.appendChild(im);
+    }else{
+      var np=document.createElement('div');
+      np.className='no-preview';
+      np.textContent='📷 '+p.name;
+      d.appendChild(np);
+    }
+    var rm=document.createElement('button');
+    rm.type='button'; rm.className='rm'; rm.innerHTML='&#10005;';
+    rm.setAttribute('aria-label','Remove photo '+(i+1));
+    rm.addEventListener('click',function(){
+      if(p.preview){ try{URL.revokeObjectURL(p.preview)}catch(e){} }
+      state.photos.splice(i,1);
+      renderThumbs();
+    });
+    d.appendChild(rm);
+    thumbsEl.appendChild(d);
+  });
+  photosNext.hidden = state.photos.length===0;
+}
+
+/* ---------- Step 6: contact ---------- */
+var couponField=document.getElementById('couponField');
+var couponToggle=document.getElementById('couponToggle');
+var fCoupon=document.getElementById('fCoupon');
+couponToggle.addEventListener('click',function(){
+  couponField.hidden=false;
+  couponToggle.hidden=true;
+  fCoupon.focus();
+});
+
+function submitLabel(){
+  return state.photos.length ? 'Send my photos →' : 'Send my request →';
+}
+
+function prepContact(){
+  document.getElementById('submitBtn').textContent=submitLabel();
+  try{
+    var saved=localStorage.getItem('dd_coupon');
+    if(saved && !fCoupon.value){ fCoupon.value=saved; }
+    if(fCoupon.value){ couponField.hidden=false; couponToggle.hidden=true; }
+  }catch(e){}
+  if(state.type==='other'){
+    document.getElementById('detailsLabel').innerHTML='Tell us about your project';
+    document.getElementById('contactSub').textContent='Describe what you have in mind — a carpenter reads every word.';
+  }
+}
+
+/* ---------- Submit ---------- */
+var form=document.getElementById('contactForm');
+var submitBtn=document.getElementById('submitBtn');
+var formError=document.getElementById('formError');
+var fallbackPanel=document.getElementById('fallback');
+document.getElementById('retryBtn').addEventListener('click',function(){
+  fallbackPanel.hidden=true;
+  attemptSubmit();
+});
+
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  formError.textContent='';
+  var name=document.getElementById('fName').value.trim();
+  var phone=document.getElementById('fPhone').value.trim();
+  if(!name){ formError.textContent='Please tell us your name.'; document.getElementById('fName').focus(); return; }
+  if(!phone){ formError.textContent='Please add a phone number so we can reach you.'; document.getElementById('fPhone').focus(); return; }
+  attemptSubmit();
+});
+
+function buildFormData(){
+  var fd=new FormData();
+  fd.append('lead_type','estimate');
+  fd.append('project_type',state.type||'');
+  var scope={};
+  if(state.scopeQ && state.scopeA){ scope={question:state.scopeQ,answer:state.scopeA}; }
+  fd.append('scope',JSON.stringify(scope));
+  fd.append('timeline',state.timeline||'');
+  fd.append('priority',state.priority||'');
+  fd.append('details',document.getElementById('fDetails').value.trim());
+  fd.append('name',document.getElementById('fName').value.trim());
+  fd.append('phone',document.getElementById('fPhone').value.trim());
+  fd.append('email',document.getElementById('fEmail').value.trim());
+  fd.append('city',document.getElementById('fCity').value.trim());
+  fd.append('coupon',fCoupon.value.trim());
+  fd.append('website',document.getElementById('fWebsite').value);
+  state.photos.forEach(function(p){ fd.append('photos',p.blob,p.name); });
+  return fd;
+}
+
+var sending=false;
+function attemptSubmit(){
+  if(sending) return;
+  sending=true;
+  submitBtn.disabled=true;
+  submitBtn.textContent='Sending…';
+  formError.textContent='';
+  send(false);
+}
+
+function send(isRetry){
+  fetch(API,{method:'POST',body:buildFormData()})
+  .then(function(res){
+    if(res.ok){ sending=false; showSuccess(); return; }
+    return res.json().catch(function(){return {};}).then(function(body){
+      sending=false;
+      resetSubmitBtn();
+      formError.textContent=body&&body.error?body.error:'Something didn’t look right — mind checking your details and trying again?';
+    });
+  })
+  .catch(function(){
+    if(!isRetry){
+      send(true);
+    }else{
+      sending=false;
+      resetSubmitBtn();
+      fallbackPanel.hidden=false;
+      fallbackPanel.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  });
+}
+
+function resetSubmitBtn(){
+  submitBtn.disabled=false;
+  submitBtn.textContent=submitLabel();
+}
+
+/* ---------- Init: ?type= preselect + auto-advance ---------- */
+(function init(){
+  var t;
+  try{ t=new URLSearchParams(location.search).get('type'); }catch(e){}
+  var valid=['doors-trim','built-ins','fireplace-mantle','accent-walls-ceilings','stairs-railings','cabinets-closets','other'];
+  if(t && valid.indexOf(t)>-1){
+    state.type=t;
+    tiles.forEach(function(x){
+      x.classList.toggle('selected',x.getAttribute('data-type')===t);
+    });
+    show(1,false);
+  }else{
+    show(0,false);
+  }
+})();
+
+})();
+</script>
+</body>
+</html>
