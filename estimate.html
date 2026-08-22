@@ -70,6 +70,16 @@ main{
   margin-bottom:18px;
 }
 
+/* ---------- Offer banner ---------- */
+.offer-banner{
+  background:var(--white);border:1px solid var(--border);
+  border-left:4px solid var(--gold);border-radius:var(--radius);
+  box-shadow:0 2px 12px rgba(35,35,35,.06);
+  padding:14px 18px;margin-bottom:14px;
+}
+.offer-banner .offer-lead{font-weight:700;font-size:15.5px;line-height:1.45}
+.offer-banner .offer-detail{font-size:14px;color:var(--grey);margin-top:2px;line-height:1.55}
+
 /* ---------- Panel ---------- */
 .panel{
   background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
@@ -156,7 +166,7 @@ main{
 
 /* Tile photo art direction */
 .tile img.pos-door{object-position:center 58%}
-.tile img.pos-lockers{object-position:42% 45%}
+.tile img.pos-lockers{object-position:center 75%}
 .tile img.pos-fireplace{object-position:center 55%}
 .tile img.pos-accent{object-position:32% 62%}
 .tile img.pos-stairs{object-position:22% center}
@@ -342,6 +352,11 @@ main{
   <p class="page-eyebrow">Free photo estimate</p>
   <h1 class="page-title">A real number, from a real carpenter</h1>
 
+  <div class="offer-banner" id="offerBanner" hidden>
+    <p class="offer-lead">$500 off any project of $3,000 or more.</p>
+    <p class="offer-detail">Your flyer code <span id="offerCode"></span> is applied — we'll honor it on any qualifying estimate.</p>
+  </div>
+
   <div class="panel" id="panel">
     <div class="panel-top" id="panelTop">
       <button type="button" class="back-link" id="backBtn" aria-label="Go back one step">
@@ -360,7 +375,7 @@ main{
           <span class="tile-label">Doors &amp; Trim</span>
         </button>
         <button type="button" class="tile" data-type="built-ins">
-          <img src="images/full/mudroom-lockers.jpg" class="pos-lockers" alt="Walnut mudroom locker bench with cubbies" loading="lazy">
+          <img src="images/full/mudroom-lockers.jpg" class="pos-lockers" alt="Dark-stained mudroom lockers with cubbies and a bench" loading="lazy">
           <span class="tile-label">Built-ins &amp; Shelving</span>
         </button>
         <button type="button" class="tile" data-type="fireplace-mantle">
@@ -456,11 +471,10 @@ main{
             <option value="Hayden"></option>
             <option value="Rathdrum"></option>
             <option value="Spokane Valley"></option>
-            <option value="Liberty Lake"></option>
             <option value="Other"></option>
           </datalist>
         </div>
-        <button type="button" class="coupon-toggle" id="couponToggle">Have a coupon code?</button>
+        <button type="button" class="coupon-toggle" id="couponToggle" hidden>Have a coupon code?</button>
         <div class="field" id="couponField" hidden>
           <label for="fCoupon">Coupon code</label>
           <input type="text" id="fCoupon" name="coupon" autocomplete="off">
@@ -524,6 +538,15 @@ var MAX_PHOTOS=8, MAX_DIM=1600, JPEG_Q=0.8;
 try{
   var qcode=new URLSearchParams(location.search).get('code');
   if(qcode) localStorage.setItem('dd_coupon',qcode);
+}catch(e){}
+
+/* ---------- Offer banner (shown only when a flyer code is present) ---------- */
+try{
+  var bannerCode=localStorage.getItem('dd_coupon');
+  if(bannerCode){
+    document.getElementById('offerCode').textContent=bannerCode.toUpperCase();
+    document.getElementById('offerBanner').hidden=false;
+  }
 }catch(e){}
 
 /* ---------- One-shot beacons ---------- */
@@ -591,12 +614,18 @@ function show(i,goingBack){
 }
 
 function next(){ show(idx+1,false); }
+var advTimer=null;
+function queueNext(){
+  if(advTimer) return;
+  advTimer=setTimeout(function(){ advTimer=null; next(); },160);
+}
 backBtn.addEventListener('click',function(){ show(idx-1,true); });
 
 function showSuccess(){
   for(var k in stepEls){ stepEls[k].classList.remove('active','back'); }
   stepEls.success.classList.add('active');
   panelTop.style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
   fireSubmit();
 }
 
@@ -612,7 +641,7 @@ tiles.forEach(function(t){
     t.classList.add('selected');
     state.type=t.getAttribute('data-type');
     if(state.type==='other'){ state.scopeQ=null; state.scopeA=null; }
-    setTimeout(next,160);
+    queueNext();
   });
 });
 
@@ -631,7 +660,7 @@ function buildScope(){
       wrap.querySelectorAll('.chip').forEach(function(x){x.classList.remove('selected')});
       b.classList.add('selected');
       state.scopeA=opt;
-      setTimeout(next,160);
+      queueNext();
     });
     wrap.appendChild(b);
   });
@@ -644,7 +673,7 @@ function wireChips(stepEl,attr,setter){
       stepEl.querySelectorAll('.chip').forEach(function(x){x.classList.remove('selected')});
       b.classList.add('selected');
       setter(b.getAttribute(attr));
-      setTimeout(next,160);
+      queueNext();
     });
   });
 }
@@ -698,8 +727,13 @@ function shrink(file){
         c.width=cw; c.height=ch;
         c.getContext('2d').drawImage(img,0,0,cw,ch);
         c.toBlob(function(blob){
+          if(!blob){ URL.revokeObjectURL(url); resolve(fallbackPhoto(file)); return; }
+          if(s===1 && blob.size>=file.size){
+            /* Re-encode didn't help — keep the untouched original, previewed via its own object URL */
+            resolve({blob:file,name:file.name||'photo',preview:url});
+            return;
+          }
           URL.revokeObjectURL(url);
-          if(!blob){ resolve(fallbackPhoto(file)); return; }
           var name=(file.name||'photo').replace(/\.[^.]+$/,'')+'.jpg';
           resolve({blob:blob,name:name,preview:URL.createObjectURL(blob)});
         },'image/jpeg',JPEG_Q);
@@ -795,6 +829,12 @@ form.addEventListener('submit',function(e){
   var phone=document.getElementById('fPhone').value.trim();
   if(!name){ formError.textContent='Please tell us your name.'; document.getElementById('fName').focus(); return; }
   if(!phone){ formError.textContent='Please add a phone number so we can reach you.'; document.getElementById('fPhone').focus(); return; }
+  var digits=phone.replace(/\D/g,'');
+  if(digits.length<10||digits.length>11){
+    formError.textContent='That phone number doesn’t look quite right — mind double-checking it?';
+    document.getElementById('fPhone').focus();
+    return;
+  }
   attemptSubmit();
 });
 
@@ -832,6 +872,7 @@ function send(isRetry){
   fetch(API,{method:'POST',body:buildFormData()})
   .then(function(res){
     if(res.ok){ sending=false; showSuccess(); return; }
+    if(res.status>=500){ throw new Error('server error'); }
     return res.json().catch(function(){return {};}).then(function(body){
       sending=false;
       resetSubmitBtn();

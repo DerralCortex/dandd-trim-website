@@ -28,7 +28,6 @@
     "telephone": "+12087558377",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "",
       "addressLocality": "Post Falls",
       "addressRegion": "ID",
       "postalCode": "83854",
@@ -40,7 +39,6 @@
       "longitude": -116.9516
     },
     "areaServed": ["Post Falls", "Coeur d'Alene", "Spokane Valley", "Hayden", "Rathdrum"],
-    "priceRange": "$$",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -324,7 +322,7 @@
       border: none; padding: 0; background: transparent; max-width: min(94vw, 1100px); max-height: 92vh;
       margin: auto;
     }
-    dialog.lightbox::backdrop { background: rgba(20,17,12,.88); }
+    dialog.lightbox::backdrop { background: rgba(20,17,12,.95); }
     dialog.lightbox img { max-width: 100%; max-height: 74vh; width: auto; height: auto; margin: 0 auto; border-radius: 10px; }
     dialog.lightbox figcaption { color: rgba(255,255,255,.9); text-align: center; font-size: 14px; padding: 12px 8px 4px; font-family: var(--font-body); }
     .lightbox-close {
@@ -339,7 +337,7 @@
     .about-grid { display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center; }
     @media (min-width: 768px) { .about-grid { grid-template-columns: 5fr 6fr; gap: 56px; } }
     .about-photo { border-radius: var(--radius); overflow: hidden; box-shadow: 0 12px 36px rgba(35,35,35,.14); }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; aspect-ratio: 4/3; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 24% 50%; aspect-ratio: 4/3; }
     @media (min-width: 768px) { .about-photo img { aspect-ratio: 4/5; } }
     .about-copy p { font-size: 16.5px; color: var(--ink-soft); font-weight: 300; line-height: 1.8; margin-bottom: 18px; }
     .partners { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
@@ -477,7 +475,7 @@
     </div>
     <div class="hero-content">
       <span class="hero-badge">Family-run since 2004 &middot; Post Falls, Idaho</span>
-      <h1>The trim and <span style="white-space:nowrap;">built-ins</span> your home deserves</h1>
+      <h1>Doors, trim, and <span style="white-space:nowrap;">built-ins</span> — done right</h1>
       <p class="hero-sub">We hang doors, run trim, and build the pieces people notice — mantles, built-ins, ceilings. We've done it for twenty years and five thousand homes across the Inland Northwest.</p>
       <div class="hero-btns">
         <a href="/estimate.html" class="btn-primary">Get a Free Photo Estimate</a>
@@ -543,7 +541,7 @@
           </div>
         </a>
         <a class="svc-card" href="/estimate.html?type=built-ins">
-          <div class="svc-photo"><img src="images/tiles/mudroom-lockers.jpg" alt="Walnut mudroom locker bench with cubbies and coat hooks" loading="lazy"></div>
+          <div class="svc-photo"><img src="images/tiles/mudroom-lockers.jpg" alt="Dark-stained mudroom lockers with cubbies and a bench" loading="lazy"></div>
           <div class="svc-body">
             <h3>Built-ins &amp; Shelving</h3>
             <p>Mudroom lockers, bookcases, benches, office walls. Built to the house, not from a box.</p>
@@ -567,7 +565,7 @@
           </div>
         </a>
         <a class="svc-card" href="/estimate.html?type=stairs-railings">
-          <div class="svc-photo"><img src="images/tiles/stairs-rail.jpg" alt="Finished fir stair rail with a floating beam shelf" loading="lazy"></div>
+          <div class="svc-photo"><img src="images/tiles/stairs-rail.jpg" alt="Finished wood stair rail with a floating beam shelf" loading="lazy"></div>
           <div class="svc-body">
             <h3>Stairs &amp; Railings</h3>
             <p>Handrails, balusters, treads, and full stair remodels.</p>
@@ -601,9 +599,9 @@
           <img src="images/tiles/black-accent-wall.jpg" alt="Black board-and-batten under a shiplap ceiling" loading="lazy">
           <span class="gal-cap">Black board-and-batten under a shiplap ceiling</span>
         </button>
-        <button class="gal-item" type="button" data-full="images/hallway-shiplap.jpg" data-cap="Shiplap vault with a stained beam">
-          <img src="images/tiles/hallway-shiplap.jpg" alt="Shiplap vault with a stained beam" loading="lazy">
-          <span class="gal-cap">Shiplap vault with a stained beam</span>
+        <button class="gal-item" type="button" data-full="images/foyer-timber.jpg" data-cap="Timber entry with an X-brace door">
+          <img src="images/tiles/foyer-timber.jpg" alt="Timber entry with an X-brace door" loading="lazy">
+          <span class="gal-cap">Timber entry with an X-brace door</span>
         </button>
         <button class="gal-item" type="button" data-full="images/board-batten-detail.jpg" data-cap="Floor-to-ceiling board-and-batten">
           <img src="images/tiles/board-batten-detail.jpg" alt="Floor-to-ceiling board-and-batten" loading="lazy">
@@ -616,14 +614,6 @@
         <button class="gal-item" type="button" data-full="images/full/barn-door-bath.jpg" data-cap="X-brace barn door">
           <img src="images/tiles/barn-door-bath.jpg" alt="X-brace barn door" loading="lazy">
           <span class="gal-cap">X-brace barn door</span>
-        </button>
-        <button class="gal-item" type="button" data-full="images/full/closet-system.jpg" data-cap="Walk-in closet system">
-          <img src="images/tiles/closet-system.jpg" alt="Walk-in closet system" loading="lazy">
-          <span class="gal-cap">Walk-in closet system</span>
-        </button>
-        <button class="gal-item" type="button" data-full="images/gallery/navy-board-batten.jpg" data-cap="Navy board-and-batten">
-          <img src="images/tiles/navy-board-batten.jpg" alt="Navy board-and-batten" loading="lazy">
-          <span class="gal-cap">Navy board-and-batten</span>
         </button>
       </div>
     </div>
@@ -642,7 +632,7 @@
     <div class="wrap">
       <div class="about-grid">
         <div class="about-photo">
-          <img src="images/tiles/foyer-timber.jpg" alt="D and D crew member finishing a timber cross-beam foyer with an X-brace front door" loading="lazy">
+          <img src="images/process-shot.jpg" alt="The crew's miter station on an active job" loading="lazy">
         </div>
         <div class="about-copy">
           <span class="overline">Who we are</span>
@@ -676,11 +666,11 @@
           <div class="quote-who">Twenty years of it<div class="quote-where">Since 2004, Post Falls</div></div>
         </div>
         <div class="quote-card">
-          <blockquote>We measure, we show up, and we don't call it finished until it looks right from every angle. The punch list gets done on the first visit, not the third.</blockquote>
+          <blockquote>We measure, we show up, and we don't call it finished until it looks right from every angle. Twenty years of production work taught us to get it right the first time.</blockquote>
           <div class="quote-who">How we work<div class="quote-where">On every job, big or small</div></div>
         </div>
         <div class="quote-card">
-          <blockquote>Licensed, bonded, and insured — and family. A Foster looks at every project that comes through this site, and one of us will be on your job.</blockquote>
+          <blockquote>Licensed, bonded, and insured — and family. The same father-and-sons crew since 2004.</blockquote>
           <div class="quote-who">Who you're hiring<div class="quote-where">Idaho RCE-70349</div></div>
         </div>
       </div>
