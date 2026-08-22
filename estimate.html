@@ -374,13 +374,9 @@ main{
           <img src="images/full/xbrace-door.jpg" class="pos-door" alt="Dark-stained X-brace front door with sidelights and transom windows" loading="lazy">
           <span class="tile-label">Doors &amp; Trim</span>
         </button>
-        <button type="button" class="tile" data-type="built-ins">
-          <img src="images/full/mudroom-lockers.jpg" class="pos-lockers" alt="Dark-stained mudroom lockers with cubbies and a bench" loading="lazy">
-          <span class="tile-label">Built-ins &amp; Shelving</span>
-        </button>
-        <button type="button" class="tile" data-type="fireplace-mantle">
+        <button type="button" class="tile" data-type="builtins-mantles">
           <img src="images/gallery/built-in-bookshelf-fireplace.jpg" class="pos-fireplace" alt="Black built-in bookshelves surrounding an electric fireplace" loading="lazy">
-          <span class="tile-label">Fireplace &amp; Mantle</span>
+          <span class="tile-label">Built-ins &amp; Mantles</span>
         </button>
         <button type="button" class="tile" data-type="accent-walls-ceilings">
           <img src="images/gallery/black-accent-wall.jpg" class="pos-accent" alt="Black board-and-batten accent wall under a shiplap ceiling with wood beam" loading="lazy">
@@ -389,10 +385,6 @@ main{
         <button type="button" class="tile" data-type="stairs-railings">
           <img src="images/tiles/stairs-rail.jpg" alt="Finished stair rail" loading="lazy">
           <span class="tile-label">Stairs &amp; Railings</span>
-        </button>
-        <button type="button" class="tile" data-type="cabinets-closets">
-          <img src="images/gallery/butlers-pantry.jpg" class="pos-closet" alt="Custom walk-in closet built-ins with drawers and hanging rod" loading="lazy">
-          <span class="tile-label">Cabinets &amp; Closets</span>
         </button>
         <button type="button" class="tile tile-other" data-type="other">
           <span class="tile-label">Something else — tell us about it</span>
@@ -562,11 +554,9 @@ var state={ type:null, scopeQ:null, scopeA:null, timeline:null, priority:null, p
 
 var SCOPE={
   'doors-trim':          {q:'How much of the home?', opts:['One room','A few rooms','Whole house']},
-  'built-ins':           {q:'Where?', opts:['Living room','Office','Mudroom','Closet','Other']},
-  'fireplace-mantle':    {q:'How far do we take it?', opts:['Mantle only','Full surround','Floor-to-ceiling']},
+  'builtins-mantles':    {q:'What are we building?', opts:['Fireplace wall or mantle','Mudroom lockers','Bookcase or media wall','Something else']},
   'accent-walls-ceilings':{q:'How much are we covering?', opts:['One wall','One ceiling','Multiple rooms']},
-  'stairs-railings':     {q:'What does the staircase need?', opts:['Handrail','Full railing','Treads & full remodel']},
-  'cabinets-closets':    {q:'Which room?', opts:['Kitchen','Bathroom','Closet system','Garage']}
+  'stairs-railings':     {q:'What does the staircase need?', opts:['Handrail','Full railing','Treads & full remodel']}
 };
 
 /* ---------- Step machine ---------- */
@@ -900,7 +890,9 @@ function resetSubmitBtn(){
 (function init(){
   var t;
   try{ t=new URLSearchParams(location.search).get('type'); }catch(e){}
-  var valid=['doors-trim','built-ins','fireplace-mantle','accent-walls-ceilings','stairs-railings','cabinets-closets','other'];
+  var legacy={'built-ins':'builtins-mantles','fireplace-mantle':'builtins-mantles','cabinets-closets':'other'};
+  var valid=['doors-trim','builtins-mantles','accent-walls-ceilings','stairs-railings','other'];
+  if(t && legacy[t]) t=legacy[t];
   if(t && valid.indexOf(t)>-1){
     state.type=t;
     tiles.forEach(function(x){

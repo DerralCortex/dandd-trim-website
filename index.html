@@ -277,7 +277,7 @@
     .services { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .svc-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
     @media (min-width: 640px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 768px) { .svc-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+    @media (min-width: 768px) { .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
     .svc-card {
       display: flex; flex-direction: column;
       background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
@@ -290,6 +290,9 @@
       .svc-card:hover .svc-photo img { transform: scale(1.04); }
     }
     .svc-photo { aspect-ratio: 4/3; overflow: hidden; background: var(--cream-dark); }
+    .svc-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 3px; }
+    .svc-strip div { aspect-ratio: 16/7; overflow: hidden; background: var(--cream-dark); }
+    .svc-strip img { width: 100%; height: 100%; object-fit: cover; }
     .svc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
     .svc-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
     .svc-body h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; margin-bottom: 8px; }
@@ -534,25 +537,25 @@
       <div class="svc-grid">
         <a class="svc-card" href="/estimate.html?type=doors-trim">
           <div class="svc-photo"><img src="images/tiles/xbrace-door.jpg" alt="Dark-stained X-brace front door with sidelights and transom windows" loading="lazy"></div>
+          <div class="svc-strip" aria-hidden="true">
+            <div><img src="images/tiles/barn-door-bath.jpg" alt="" loading="lazy" style="object-position:center 30%"></div>
+            <div><img src="images/tiles/entry-door.jpg" alt="" loading="lazy" style="object-position:center 42%"></div>
+          </div>
           <div class="svc-body">
             <h3>Doors &amp; Trim</h3>
             <p>Interior doors, casing, base, and crown — hung straight and fitted tight.</p>
             <span class="svc-go">Get an estimate &rarr;</span>
           </div>
         </a>
-        <a class="svc-card" href="/estimate.html?type=built-ins">
-          <div class="svc-photo"><img src="images/tiles/mudroom-lockers.jpg" alt="Dark-stained mudroom lockers with cubbies and a bench" loading="lazy"></div>
-          <div class="svc-body">
-            <h3>Built-ins &amp; Shelving</h3>
-            <p>Mudroom lockers, bookcases, benches, office walls. Built to the house, not from a box.</p>
-            <span class="svc-go">Get an estimate &rarr;</span>
-          </div>
-        </a>
-        <a class="svc-card" href="/estimate.html?type=fireplace-mantle">
+        <a class="svc-card" href="/estimate.html?type=builtins-mantles">
           <div class="svc-photo"><img src="images/tiles/built-in-bookshelf-fireplace.jpg" alt="Floor-to-ceiling black built-in bookshelves flanking an electric fireplace" loading="lazy"></div>
+          <div class="svc-strip" aria-hidden="true">
+            <div><img src="images/tiles/mudroom-lockers.jpg" alt="" loading="lazy" style="object-position:center 65%"></div>
+            <div><img src="images/tiles/foyer-timber.jpg" alt="" loading="lazy" style="object-position:center 30%"></div>
+          </div>
           <div class="svc-body">
-            <h3>Fireplaces &amp; Mantles</h3>
-            <p>Mantles, surrounds, and full floor-to-ceiling fireplace walls.</p>
+            <h3>Built-ins &amp; Mantles</h3>
+            <p>Mantles, fireplace walls, mudroom lockers, bookcases — built to the house, not from a box.</p>
             <span class="svc-go">Get an estimate &rarr;</span>
           </div>
         </a>
@@ -569,14 +572,6 @@
           <div class="svc-body">
             <h3>Stairs &amp; Railings</h3>
             <p>Handrails, balusters, treads, and full stair remodels.</p>
-            <span class="svc-go">Get an estimate &rarr;</span>
-          </div>
-        </a>
-        <a class="svc-card" href="/estimate.html?type=cabinets-closets">
-          <div class="svc-photo"><img src="images/tiles/butlers-pantry.jpg" alt="Custom closet built-ins with shelving and drawers" loading="lazy"></div>
-          <div class="svc-body">
-            <h3>Cabinets &amp; Closets</h3>
-            <p>Kitchens, baths, pantries, and closet systems — set level and scribed to the wall.</p>
             <span class="svc-go">Get an estimate &rarr;</span>
           </div>
         </a>
